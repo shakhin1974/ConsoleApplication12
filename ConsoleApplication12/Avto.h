@@ -5,6 +5,7 @@ using namespace std;
 class Avtomobil
 {
 public:
+	int speed = 0;
 	Avtomobil(string b, string m,
 		int y, float o, int MS, int w)
 	{
@@ -14,29 +15,45 @@ public:
 		obyem = o;
 		MaxSpeed = MS;
 		weigth = w;
+		
 
 	}
-	 
- 
+	 ~Avtomobil() {}
 void util()
 {
-	if (year < 2014)
+	if (year < 2004)
 	{
-		cout << "Àâòîìîáèëü " << brand << " " << marka
-			<< " ïîäëåæàùèò ê  óòèëèçàöèè \n";
+		cout << "ÐÐ²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»ÑŒ " << brand << " " << marka
+			<< " Ð¿Ð¾Ð´Ð»ÐµÐ¶Ð°Ñ‰Ð¸Ñ‚ Ðº  ÑƒÑ‚Ð¸Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ \n";
 	}
 	else 
 	{
-		cout << "Àâòîìîáèëü " << brand << " " << marka
-			<< " ÍÅ ïîäëåæàùèò ê  óòèëèçàöèè \n";
+		cout << "ÐÐ²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»ÑŒ " << brand << " " << marka
+			<< " ÐÐ• Ð¿Ð¾Ð´Ð»ÐµÐ¶Ð°Ñ‰Ð¸Ñ‚ Ðº  ÑƒÑ‚Ð¸Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ \n";
 	}
 }
-int skorost( int Speed )
+int GAZ( int Speed )
 {
-	int ql = 0;
-	while (Speed < MaxSpeed - 40) {
-		return ql + Speed;
+	int q = 0;
+	if (Speed < MaxSpeed - 40) {
+		return q + Speed;
 	}
+}
+
+int stop (int time)
+{
+	for (int i = 0; i < time; i++)
+	{
+		if (speed > 0 ) {
+			speed = speed  / 1.5;
+			cout << speed << endl;
+			
+		}
+		
+	}
+	 return speed;
+	
+	
 }
 
 private:
@@ -44,7 +61,7 @@ private:
 	string marka{};
 	int year{};
 	float obyem{};
-
 	int MaxSpeed{};
 	int weigth;
+	
 };
