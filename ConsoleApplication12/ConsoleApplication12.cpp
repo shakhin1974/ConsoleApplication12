@@ -22,13 +22,7 @@ int main()
     int n;  
     cin >> n;
     cout << "Укаажи ускарение скорости за одну секунду";
-    
-    
-    for (int  i = 0; i < n; i++)
-    {
-        cout << BMW.GAZ(BMW.speed)<<endl;
-        BMW.speed = BMW.GAZ(BMW.speed)+6;
-    }
+      BMW.GAZ(n);
     cout << "Введите секунды для тормоза: ";
     int time;
     cin >> time;
