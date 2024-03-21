@@ -5,20 +5,26 @@ using namespace std;
 class Avtomobil
 { public:
 	int speed = 0;
-	Avtomobil(string b, string m, int y, float o, int MS, int w)
-	{ brand = b;
+	int way = 0;
+	Avtomobil(string b, string m, int y, double o, int MS, int w)
+	{ 
+	brand = b;
 	marka = m;
 	year = y;
 	obyem = o;
 	MaxSpeed = MS;
-	weigth = w; }
+	weigth = w;
+ 
+	}
 	 ~Avtomobil() {}
 int GAZ( int time )
 { for (int i = 0; i < time; i++)
-	{ if (speed <= MaxSpeed  )
-	{ speed = speed + 8;
-	cout << speed<<endl;} 
-} 	return  speed;  }
+
+	{ if (speed <= MaxSpeed   )
+	 speed = speed + 8;
+	way += time *speed / 3600;
+	cout << "Speed " << speed << " Way "<<way<<endl; 
+} 	return  speed, way;  }
 int FREE (int time)
 {
 	for (int i = 0; i < time; i++)
@@ -26,23 +32,31 @@ int FREE (int time)
 		if (speed <= 10)
 		{
 			speed = speed -8;
-			cout << speed << endl;
+			way += time * speed / 3600;			
+			cout << "Speed " << speed << " Way " << way << endl;
 		}
-	} 	return  speed;
+	} 	return  speed, way;
+
 }
 int STOP (int time)
 { 	for (int i = 0; i < time; i++)
-	{ if (speed >= 15 ) 
-	{speed = speed - 14;
-	cout << speed << endl; }
-	if (speed < 10)
+	{ if (speed >= 5 ) 
+	{
+	cout <<"Speed " << speed <<" Way "<<way<< endl;
+	speed -= 24;
+	way += time * speed / 3600;
+}
+	if (speed < 1)
 	{ speed = 0;
 	cout << speed << endl; 	break; } }
-return speed ; }
+return speed , way; }
 private:
 	string brand{};
 	string marka{};
 	int year{};
-	float obyem{};
+	double obyem{};
 	int MaxSpeed{};
-	int weigth; };
+	int weigth{};
+	
+ 
+};
